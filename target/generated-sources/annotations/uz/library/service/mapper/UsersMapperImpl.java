@@ -7,7 +7,7 @@ import uz.library.model.Users;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-04-10T17:38:58+0500",
+    date = "2023-04-15T14:15:10+0500",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 19.0.2 (Oracle Corporation)"
 )
 @Component
@@ -19,21 +19,20 @@ public class UsersMapperImpl implements UsersMapper {
             return null;
         }
 
-        UsersDto usersDto = new UsersDto();
+        UsersDto.UsersDtoBuilder usersDto = UsersDto.builder();
 
-        usersDto.setId( e.getId() );
-        usersDto.setName( e.getName() );
-        usersDto.setSureName( e.getSureName() );
-        usersDto.setGender( e.getGender() );
-        usersDto.setPassportId( e.getPassportId() );
-        usersDto.setPhoneNumber( e.getPhoneNumber() );
-        usersDto.setEmail( e.getEmail() );
-        usersDto.setRole( e.getRole() );
+        usersDto.name( e.getName() );
+        usersDto.sureName( e.getSureName() );
+        usersDto.gender( e.getGender() );
+        usersDto.passportId( e.getPassportId() );
+        usersDto.phoneNumber( e.getPhoneNumber() );
+        usersDto.email( e.getEmail() );
+        usersDto.role( e.getRole() );
         if ( e.getIsActive() != null ) {
-            usersDto.setIsActive( e.getIsActive().shortValue() );
+            usersDto.isActive( e.getIsActive().shortValue() );
         }
 
-        return usersDto;
+        return usersDto.build();
     }
 
     @Override

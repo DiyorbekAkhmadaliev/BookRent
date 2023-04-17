@@ -5,10 +5,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
 import uz.library.service.validator.GenderValidator;
 import uz.library.service.validator.PhoneNumberValidator;
@@ -20,6 +17,7 @@ import static uz.library.service.validator.AppStatusMessages.VALIDATION_ERROR;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class UsersDto {
 
     private Integer Id;

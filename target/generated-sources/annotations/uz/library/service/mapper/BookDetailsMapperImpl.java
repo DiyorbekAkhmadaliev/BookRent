@@ -7,7 +7,7 @@ import uz.library.model.BookDetails;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-04-10T17:38:58+0500",
+    date = "2023-04-15T14:15:10+0500",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 19.0.2 (Oracle Corporation)"
 )
 @Component

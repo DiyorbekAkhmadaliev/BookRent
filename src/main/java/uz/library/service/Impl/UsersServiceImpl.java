@@ -98,13 +98,25 @@ public class UsersServiceImpl implements UsersService {
     @Override
     public ResponseDto<UsersDto> addUser(UsersDto dto) {
         dto.setIsActive((short) 1);
-        Users user = usersRepository.save(usersMapper.toEntity(dto));
-        return ResponseDto.<UsersDto>builder()
-                .message(OK)
-                .code(OK_CODE)
-                .success(true)
-                .data(usersMapper.toDto(user))
-                .build();
+
+        try {
+
+            Users user = usersRepository.save(usersMapper.toEntity(dto));
+
+            return ResponseDto.<UsersDto>builder()
+                    .message(OK)
+                    .code(OK_CODE)
+                    .success(true)
+                    .data(usersMapper.toDto(user))
+                    .build();
+
+        }catch (Exception e){
+
+            return ResponseDto.<UsersDto>builder()
+                    .message(DATABASE_ERROR + " " + e.getMessage())
+                    .code(DATABASE_ERROR_CODE)
+                    .build();
+        }
     }
 
     @Override

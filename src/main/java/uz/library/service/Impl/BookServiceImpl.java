@@ -24,12 +24,7 @@ public class BookServiceImpl implements BookServices {
 
     @Override
     public ResponseDto<BookDto> addBook(BookDto dto) {
-        if (dto == null) {
-            return ResponseDto.<BookDto>builder()
-                    .message(NULL_VALUE)
-                    .code(VALIDATION_ERROR_CODE)
-                    .build();
-        }
+        isNull(dto);
 
         Book book = bookMapper.toEntity(dto);
         book.setAvailable(true);
@@ -107,7 +102,20 @@ public class BookServiceImpl implements BookServices {
 
     @Override
     public ResponseDto<Void> deleteBook(Integer id) {
-        return null;
+        isNull(id);
+        try{
+            bookRepository.deleteById(id);
+            return ResponseDto.<Void>builder()
+                    .success(true)
+                    .message(OK)
+                    .code(OK_CODE)
+                    .build();
+        }catch (Exception e){
+            return ResponseDto.<Void>builder()
+                    .message(DATABASE_ERROR +" "+ e.getMessage())
+                    .code(DATABASE_ERROR_CODE)
+                    .build();
+        }
     }
 
     @Override
