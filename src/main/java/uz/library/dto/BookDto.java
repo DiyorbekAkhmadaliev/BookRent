@@ -29,6 +29,7 @@ public class BookDto {
     private Integer amount;
     @NotNull(message = EMPTY_STRING)
     private String description;
+    private boolean rentStatus;
     private BookDetailsDto details;
     private MultipartFile bookImage;
     private boolean isAvailable;

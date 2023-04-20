@@ -9,7 +9,7 @@ import uz.library.model.BookDetails;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-04-15T14:15:10+0500",
+    date = "2023-04-18T14:46:34+0500",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 19.0.2 (Oracle Corporation)"
 )
 @Component
@@ -29,6 +29,7 @@ public class BookMapperImpl implements BookMapper {
         bookDto.setPrice( e.getPrice() );
         bookDto.setAmount( e.getAmount() );
         bookDto.setDescription( e.getDescription() );
+        bookDto.setRentStatus( e.isRentStatus() );
         bookDto.setDetails( bookDetailsToBookDetailsDto( e.getDetails() ) );
         bookDto.setAvailable( e.isAvailable() );
 
@@ -50,6 +51,7 @@ public class BookMapperImpl implements BookMapper {
         book.setAmount( d.getAmount() );
         book.setDescription( d.getDescription() );
         book.setDetails( bookDetailsDtoToBookDetails( d.getDetails() ) );
+        book.setRentStatus( d.isRentStatus() );
         book.setAvailable( d.isAvailable() );
 
         return book;

@@ -26,5 +26,6 @@ public class Book {
     private String description;
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private BookDetails details;
+    private boolean rentStatus;
     private boolean isAvailable;
 }
