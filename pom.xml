@@ -14,7 +14,7 @@
     <name>Library</name>
     <description>Library</description>
     <properties>
-        <java.version>19</java.version>
+        <java.version>17</java.version>
         <mapstruct.version>1.5.3.Final</mapstruct.version>
         <lombok.version>1.18.24</lombok.version>
     </properties>
